@@ -15,6 +15,7 @@ public abstract class Tweet {
 
     public Tweet(String message) {
         this.message = message;
+        this.date = new Date();
     }
 
     public Tweet(String message, Date date) {
@@ -39,6 +40,11 @@ public abstract class Tweet {
             throw new TweetTooLongException();
         }
         this.message = message;
+    }
+
+    @Override
+    public String toString() {
+        return date.toString() + " | " + message;
     }
 
     public void setMoods(ArrayList<Mood> moodlist) {
